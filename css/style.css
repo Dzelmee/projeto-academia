@@ -1,0 +1,505 @@
+/* seletor{
+    propriedade:valor;
+} */
+
+:root{
+    --brand: #B91F33;    
+    --primary: #101417;
+    --contrast: #E0E34C;
+    --gray-light: #E1E1E1;
+    --gray-medium: #666666;
+    --white: #FFFFFF;
+    --black: #000000;
+    --rounded: 3px;
+    --section-space: 100px;
+    --swiper-navigation-color: var(--brand);
+}
+
+/* seletor all/todos */
+*{
+    font-family: 'Teko', sans-serif;
+    text-transform: uppercase; /*aplica maiúsculo aos textos*/
+}
+
+html{
+    /*faz com que a navegação fique suave*/
+    scroll-behavior: smooth;
+}
+
+#academia{
+    scroll-margin-top: 180px;
+}
+
+#planos{
+    scroll-margin-top: 120px;
+}
+
+#contato{
+    scroll-margin-top: 150px;
+}
+
+
+body{
+    margin: 0;    
+    background-color: var(--primary);    
+    overflow-x: hidden; /*esconde o conteúdo que ultrapassar a largura do body */
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+
+h2{
+    color: var(--white);
+    font-size: 40px;
+    line-height: 85%;
+}
+
+p{
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--gray-light);
+}
+
+a{
+    text-decoration: none; /*retirando o sublinhado de todos os links*/
+}
+
+img{
+    display: block;    
+}
+
+/********Utilitários***********/
+
+.bg-popup{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-popup-none{
+    display: none;
+}
+
+.popup{
+    position: relative;
+}
+
+
+.close{
+    color: red;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    right: 25px;
+    top: -20px;
+    cursor: pointer;
+}
+
+.btn{
+    background-color: var(--brand);
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 10px 60px 6px 60px; /*top right bottom left*/
+    border-radius: var(--rounded);
+    display: inline-block;
+    transition: 0.2s;
+    border: solid 2px transparent;
+    cursor: pointer;
+    /*cursor: url(../img/cursor.png) 14 14, pointer;*/
+}
+
+.btn:hover{
+    transform: scale(0.96);
+}
+
+.btn-outline{
+    background-color: transparent;
+    border: solid 2px var(--brand);
+}
+
+.container{    
+    max-width: 1140px; /*largura máxima*/
+    height: auto; /*altura*/
+    /*centraliza a div*/
+    margin-left: auto;
+    margin-right: auto;    
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header{
+    background-color: var(--black);
+    padding-top: 16px;
+    padding-bottom: 16px;
+
+    /*posição fixa APÓS começar a rolar a página*/
+    position: sticky;
+    top: 0;
+    z-index: 100; /*faz com que o elemento posicionado fique X camadas a cima*/
+}
+
+
+/*formatando o container que está dentro do header*/
+.header .container{    
+    display: flex; /*habilita o flexbox*/   
+    justify-content: space-between; /*alinhamento no eixo X (horizontal)*/
+    align-items: center; /*alinhamento no eixo Y (vertical)*/
+}
+
+/*formatando todos os links do menu*/
+.menu a{    
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;    
+    margin-left: 111px;
+}
+
+/*Ao passar o mouse nos links do menu*/
+.menu a:hover{
+    color: var(--brand);
+}
+
+.bg-1{
+    background-image: url(../img/background.jpg);
+}
+
+.bg-2{
+    background-image: url(../img/background-2.jpg);
+}
+
+.bg-3{
+    background-image: url(../img/background-3.jpg);
+}
+
+.hero-section{    
+    background-size: cover; /*faz com que a imagem cubra toda a div*/
+    height: calc(100vh - 100px); /*View Height -> Unidade referente ao navegador*/
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-section h1{
+    color: var(--gray-light);
+    font-size: 96px;
+    line-height: 90%;
+}
+
+.hero-section p{
+    color: var(--gray-light);
+    font-size: 24px;
+}
+
+.nossa-academia{
+    margin-top: var(--section-space);
+    margin-bottom: var(--section-space);
+    display: flex;
+    align-items: center;    
+    column-gap: 24px; /*espaçamento entre os flex-items*/
+}
+
+.faca-parte{
+    background-color: var(--gray-light);
+}
+
+.faca-parte h2{
+    color: var(--primary);
+}
+
+.faca-parte p{
+    color: var(--gray-medium);
+}
+
+.faca-parte .content{
+    width: calc(100% - 200px);
+    max-width: 850px;
+    padding: 37px 0;    
+}
+
+
+.faca-parte .container{
+    /*posição para servir de referência ao absolute da imagem*/
+    position: relative;
+}
+
+.faca-parte .image{
+    /*Posição em relação ao elemento pai (desde que ele também tenha position, 
+    caso contrário será em relação ao body) */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.planos{
+    margin-top: var(--section-space);
+    margin-bottom: var(--section-space);
+    text-align: center;
+}
+
+.flex-cards{
+    display: flex; 
+    column-gap: 24px;   
+}
+
+.card{
+    /*border-color: var(--gray-light);
+    border-width: 1px;
+    border-style: solid;*/
+    border: 1px solid var(--gray-light);
+    border-radius: var(--rounded);
+    padding: 30px;
+}   
+
+.card h3{
+    color: var(--white);
+    font-size: 32px;
+}
+
+.card ul{
+    color: var(--gray-light);
+    text-align: left;
+    font-size: 18px;
+    line-height: 120%;
+    padding:0;
+    list-style-position: inside; /*posição do marcador da lista*/    
+}
+
+.card .btn{
+    display: block;
+}
+
+.card-destaque{
+    border-color: var(--contrast) !important;
+    position: relative;
+}
+
+@keyframes rotate {
+    
+    0%{
+        transform: rotate(0);
+    }
+        
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+.selo{
+    animation: rotate 10s infinite linear;
+    width: 70px;
+    height: 70px;
+    background-color: var(--contrast);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    line-height: 90%;
+    
+    /*Posição em relação ao elemento pai desde que ele tenha position*/
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    /*transform: rotate(18.376deg)*/
+}
+
+.card-destaque .price{
+    color: var(--contrast);
+    /*display: inline-block;
+    animation: rotate 10s infinite linear;*/
+}
+
+.price{
+    color: var(--white);
+    font-size: 32px;    
+    font-weight: 700;
+}
+
+.fale-conosco{
+    display: flex;
+    column-gap: 24px;
+}
+
+
+.fale-conosco input, .fale-conosco textarea{
+    display: block;
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: solid 1px var(--gray-light);
+    border-radius: var(--rounded);
+    padding: 10px;
+    box-sizing: border-box; /*faz com que o padding e border não aumente as dimensões*/
+    margin-bottom: 10px;
+    color: var(--white);    
+    font-size: 18px;
+}
+
+.fale-conosco textarea{
+    height: 140px;
+}
+
+.footer{
+    background-color: var(--brand);
+    text-align: center;
+    padding: 14px 194px /*vertical (top/bottom) horizontal (left/right)*/;
+    margin-top: var(--section-space);
+    margin-bottom: 30px;
+}
+
+.footer p{
+    margin: 0;
+}
+
+.social{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin-bottom: var(--section-space);
+}
+
+/*Para telas de no máximo 1279px*/
+@media (max-width: 1279px){
+
+    h2{
+        font-size: 32px;
+    }
+
+    .card h3{
+        font-size: 24px;
+    }
+
+    .menu{
+        /*display: none;*/
+        /*background-color: var(--brand);*/
+        background-image: linear-gradient(var(--black), var(--primary));
+        width: 100%;
+        height: calc(100vh - 100px);
+        /*height: 420px;*/
+        position: absolute;
+        left: 0;
+        top: 100px;
+        
+        display: flex;
+        flex-direction: column;       
+        transform: translateX(-100vw);
+        transition: 0.3s;
+    }
+
+    /*classe que será inserida/removida pelo javascript*/
+    .menu-open{
+        transform: translateX(0);
+    }
+
+    .menu a{
+        padding: 25px 15px;
+        margin: 0;
+        border-bottom: 1px solid var(--gray-medium);
+    }
+
+    /*enquanto o usuário está tocando/clicando no link*/
+    .menu a:active{
+        background-color: var(--brand);
+        color: var(--white);
+    }
+
+    .bar{
+        width: 40px;
+        height: 3px;
+        background-color: var(--white);
+        margin-bottom: 3px;
+        transition: 0.3s;
+    }
+
+    /*Quando a classe bar estiver dentro da classe x*/
+
+    /*bar que for o primeiro filho*/
+    .x .bar:first-child{
+        transform: rotate(45deg) translate(5px,5px);
+        transition-delay: 0.3s;
+    }
+
+    /*bar que for o último filho*/
+    .x .bar:last-child{
+        transform: rotate(-45deg) translate(3px,-3px);
+        transition-delay: 0.3s;
+    }
+
+    .x .bar:nth-child(2){
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    .hero-section{
+        /*height: auto;
+        padding-top: 94px;
+        padding-bottom: 94px;*/
+        height: 420px;
+        background-position: top center;
+    }
+
+    .hero-section h1{
+        font-size: 36px;
+    }
+
+    .hero-section p{
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 1023px){
+    .nossa-academia{
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    .nossa-academia img{
+        width: 100%;
+    }
+
+    .flex-cards{
+        /*Quando o direction estiver em coluna, 
+        justify-content e align-items trocam o alinhamento*/
+        flex-direction: column;
+        row-gap: 30px;
+        align-items: center;
+    }
+
+    .card{
+        max-width: 450px;
+    }
+
+    .fale-conosco{
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .fale-conosco iframe{
+        width: 100%;
+    }
+
+    .footer{
+        padding: 14px;
+    }
+}
+
+@media (max-width: 650px){
+
+    .faca-parte .content{
+        width: 100%;
+    }
+
+    .faca-parte .image{
+        display: none;
+    }
+
+    .popup img{
+        width: 320px;
+    }
+}
